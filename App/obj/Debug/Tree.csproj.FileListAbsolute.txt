@@ -16,3 +16,8 @@ C:\Users\odint\RiderProjects\TreeTests1\App\bin\Debug\Black-Red_tree.pdb
 C:\Users\odint\RiderProjects\TreeTests1\App\obj\Debug\Tree.csprojAssemblyReference.cache
 C:\Users\odint\RiderProjects\TreeTests1\App\obj\Debug\Black-Red_tree.exe
 C:\Users\odint\RiderProjects\TreeTests1\App\obj\Debug\Black-Red_tree.pdb
+C:\Users\odint\RiderProjects\RedBlackTree-Tests\App\bin\Debug\Black-Red_tree.exe.config
+C:\Users\odint\RiderProjects\RedBlackTree-Tests\App\bin\Debug\Black-Red_tree.exe
+C:\Users\odint\RiderProjects\RedBlackTree-Tests\App\bin\Debug\Black-Red_tree.pdb
+C:\Users\odint\RiderProjects\RedBlackTree-Tests\App\obj\Debug\Black-Red_tree.exe
+C:\Users\odint\RiderProjects\RedBlackTree-Tests\App\obj\Debug\Black-Red_tree.pdb

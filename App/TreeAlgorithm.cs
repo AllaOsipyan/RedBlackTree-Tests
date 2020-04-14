@@ -215,6 +215,128 @@ namespace Tree
             else
                 LeftRotate(grandpa);
         }
+
+        public Node Min()
+        {
+            if (Root == null)
+                return null;
+            var node = Root;
+            var nextNode = node.Left;
+            while (nextNode != null)
+            {
+                node = nextNode;
+                nextNode = nextNode.Left;
+            }
+            return node;
+        }
+
+        public Node Max()
+        {
+            if (Root == null)
+                return null;
+            var node = Root;
+            var nextNode = node.Right;
+            while (nextNode != null)
+            {
+                node = nextNode;
+                nextNode = nextNode.Right;
+            }
+            return node;
+        }
+
+        public Node FindMin(double key)
+        {
+            var node = FindKey(key);
+            if (node == null)
+                return null;
+            if (node.Left == null)
+                return node;
+            var nextNode = node.Left;
+            if (nextNode == null)
+                return null;
+            while (nextNode != null)
+            {
+                node = nextNode;
+                nextNode = nextNode.Left;
+            }
+            return node;
+        }
+
+        public Node FindMax(double key)
+        {
+            var node = FindKey(key);
+            if (node == null)
+                return null;
+            if (node.Right == null)
+                return node;
+            var nextNode = node.Right;
+            if (nextNode == null)
+                return node.Right;
+
+            while (nextNode != null)
+            {
+                node = nextNode;
+                nextNode = nextNode.Right;
+            }
+            return node;
+        }
+
+        public Color Find(double key)
+        {
+            var isExist = FindKey(key);
+            return isExist == null ? Color.NaN : isExist.Colour;
+        }
+
+        public Node FindNext(double key)
+        {
+            var node = FindKey(key);
+            if (node == null)
+                return null;
+            if (node.Right != null)
+                node = FindMin(node.Right.Value);
+            else
+            {
+                if (node.Parent != null)
+                {
+                    while (node.Parent != null && node != node.Parent.Left)
+                    {
+                        node = node.Parent;
+                    }
+                    if (node.Parent != null)
+                        node = node.Parent;
+                    else
+                        return null;
+                }
+            }
+            return node;
+        }
+
+
+        public Node FindPrev(double key)
+        {
+            var node = FindKey(key);
+            if (node == null)
+                return null;
+            if (node.Left != null)
+                node = FindMax(node.Left.Value);
+            else
+            {
+                if (node.Parent != null)
+                {
+                    while (node.Parent != null && node != node.Parent.Right)
+                    {
+                        node = node.Parent;
+                    }
+                    if (node.Parent != null)
+                        node = node.Parent;
+                    else
+                        return null;
+                }
+            }
+            return node;
+        }
+
+       
         
     }
 }

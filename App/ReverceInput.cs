@@ -10,7 +10,7 @@ namespace Tree
     {
         public static void Input(TreeAlgorithm tree)
         {
-            string help = "1 x - Add(x)\n2 x - Delete(x)\n3 x - Find(x)\n4   - Min()\n5   - Max()\n6 x - FindNext(x)\n7 x - FindPrevious(x)";
+            string help = "1 x - Add(x)\n2 x - Find(x)\n3   - Min()\n4   - Max()\n5 x - FindNext(x)\n6 x - FindPrevious(x)";
             Console.WriteLine(help);
             var button = Console.ReadLine();
             while (true)
@@ -32,6 +32,70 @@ namespace Tree
                                 Console.WriteLine("Incorrect expression with Add(x)");
                             }
 
+                            break;
+                       
+                        case '2':
+                            Console.Write("Color of node: ");
+                            try
+                            {
+                                if (tree.Find(Convert.ToInt32(button.Split(' ')[1])) == Color.NaN)
+                                {
+                                    Console.WriteLine("Node does not exist");
+                                }
+                                else Console.WriteLine(tree.Find(Convert.ToInt32(button.Split(' ')[1])));
+                            }
+                            catch (Exception)
+                            {
+                                Console.WriteLine("Incorrect expression with Find(x)");
+                            }
+                            break;
+                        case '3':
+                            Console.Write("Min node: ");
+                            if (button == "4") Console.WriteLine(tree.Min().Value);
+                            else Console.WriteLine("Incorrect expression with Min()");
+                            break;
+                        case '4':
+                            Console.Write("Max node: ");
+                            if (button == "5") Console.WriteLine(tree.Max().Value);
+                            else Console.WriteLine("Incorrect expression with Max()");
+                            break;
+                        case '5':
+                            try
+                            {
+                                if (tree.FindNext(Convert.ToInt32(button.Split(' ')[1])) == null)
+                                    Console.WriteLine("FindNext: Node does not exist");
+                                else
+                                {
+                                    Console.Write("Next node of {0}: ", button.Split(' ')[1]);
+                                    Console.WriteLine(tree.FindNext(Convert.ToInt32(button.Split(' ')[1])).Value);
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                Console.WriteLine("Incorrect expression with FindNext(x)");
+                            }
+                            break;
+                        case '6':
+                            try
+                            {
+                                if (tree.FindPrev(Convert.ToInt32(button.Split(' ')[1])) == null)
+                                    Console.WriteLine("FindPrevious: Node does not exist");
+                                else
+                                {
+                                    Console.Write("Previous node of {0}: ", button.Split(' ')[1]);
+                                    Console.WriteLine(tree.FindPrev(Convert.ToInt32(button.Split(' ')[1])).Value);
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                Console.WriteLine("Incorrect expression with FindPrevious(x)");
+                            }
+                            break;
+                        case '7':
+                            PrintOfTree.Print(tree.Root);
+                            break;
+                        default:
+                            Console.WriteLine("Incorrect input. Please try again");
                             break;
                     }
                 button = Console.ReadLine();
